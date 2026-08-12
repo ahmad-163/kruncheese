@@ -12,6 +12,7 @@ function Products(props) {
                 { id: 4, name: "Krisp Double Krunch Deal", description: "Burger + Chicken Piece + Drink", price: 620, image: "/burger.jpg", category: "Deals" },
                 { id: 5, name: "Solo Box", description: "Stunner + Fried Chicken + Fries + Drink", price: 999, image: "/burger.jpg", category: "Deals" },
                 { id: 6, name: "Pair Box", description: "2 Stunners + 2 Chicken Pieces + Fries + Drinks", price: 1660, image: "/burger.jpg", category: "Deals" },
+                { id: 7, name: "Couple Box", description: "2 Stunners + 2 Chicken Pieces + Fries + Drinks", price: 1660, image: "/burger.jpg", category: "Deals" },
             ],
         },
 
