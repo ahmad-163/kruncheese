@@ -57,15 +57,15 @@ img {
 /* Products Grid - 2 columns small screens, 6 columns large screens */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
-/* Large screens: 6 columns */
-@media (min-width: 1024px) {
+/* Large screens: 6 columns - PC/Desktop */
+@media (min-width: 1200px) {
   .products-grid {
-    grid-template-columns: repeat(6, 1fr); /* 6 columns for large screens */
-    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
   }
 }
 

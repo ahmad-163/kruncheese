@@ -99,8 +99,8 @@ function Products(props) {
                             style={{ 
                                 borderRadius: '20px',
                                 width: '100%',
-                                height: '200px',
-                                objectFit: 'cover',
+                                height: 'auto',
+                                objectFit: 'contain',
                                 marginBottom: '24px'
                             }}
                         />
