@@ -411,6 +411,7 @@ function Navbar() {
                         maxWidth: '1400px',
                         margin: '0 auto',
                         padding: isMobile ? '0 16px' : '0 16px',
+                        position: 'relative',
                     }}
                 >
                     <div
@@ -418,6 +419,10 @@ function Navbar() {
                         style={{
                             gap: isMobile ? '8px' : '14px',
                             width: isMobile ? 'max-content' : 'fit-content',
+                            position: 'relative',
+                            left: scrolled ? '0%' : '50%',
+                            transform: scrolled ? 'translateX(0)' : 'translateX(-50%)',
+                            transition: 'left 0.3s ease, transform 0.3s ease',
                         }}
                     >
                         {categories.map((cat) => (
