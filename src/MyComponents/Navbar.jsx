@@ -2,6 +2,23 @@ import React, { useState, useEffect, useRef } from 'react'
 
 const categories = ["Deals", "Burgers", "Wraps", "Sides", "Dip", "Drinks"]
 
+// Media query hook
+const useMediaQuery = (query) => {
+    const [matches, setMatches] = useState(false)
+
+    useEffect(() => {
+        const media = window.matchMedia(query)
+        if (media.matches !== matches) {
+            setMatches(media.matches)
+        }
+        const listener = () => setMatches(media.matches)
+        media.addListener(listener)
+        return () => media.removeListener(listener)
+    }, [matches, query])
+
+    return matches
+}
+
 // Cities and their sub-regions
 const citiesData = {
     "Lahore": ["DHA Phase 5", "Gulberg III", "Johar Town", "Model Town", "Abdalians Society Block B"],
@@ -23,6 +40,9 @@ function Navbar() {
     const [searchQuery, setSearchQuery] = useState('')
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const profileRef = useRef(null)
+    
+    const isMobile = useMediaQuery('(max-width: 768px)')
+    const isTablet = useMediaQuery('(max-width: 1024px)')
 
     // Show location modal on first visit
     useEffect(() => {
@@ -132,29 +152,30 @@ function Navbar() {
 
     return (
         <div>
-            {/* Simplified Top Navbar - matching the image */}
+            {/* Simplified Top Navbar - Responsive */}
             <div
-                className="d-flex align-items-center justify-content-between px-4"
+                className="d-flex align-items-center justify-content-between"
                 style={{ 
-                    height: '60px', 
+                    height: isMobile ? '50px' : '60px', 
                     borderBottom: '1px solid #eee', 
                     background: '#fff',
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
+                    padding: isMobile ? '0 12px' : '0 16px'
                 }}
             >
                 {/* Location Selector - Left Side */}
                 <div 
                     className="d-flex align-items-center" 
-                    style={{ cursor: 'pointer', gap: '8px' }}
+                    style={{ cursor: 'pointer', gap: isMobile ? '4px' : '8px', flex: 1, minWidth: 0 }}
                     onClick={() => setShowLocationModal(true)}
                 >
-                    <span style={{ fontSize: '20px', color: '#c40013' }}>📍</span>
-                    <div>
-                        <div style={{ fontSize: '12px', color: '#333', fontWeight: '600' }}>
+                    <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#c40013', flexShrink: 0 }}>📍</span>
+                    <div style={{ overflow: 'hidden', minWidth: 0 }}>
+                        <div style={{ fontSize: isMobile ? '10px' : '12px', color: '#333', fontWeight: '600', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             {orderType} to
                         </div>
-                        <div style={{ fontSize: '12px', color: '#666' }}>
-                            {selectedArea}, {selectedCity} - eta 45 minutes.
+                        <div style={{ fontSize: isMobile ? '9px' : '12px', color: '#666', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {isMobile ? `${selectedArea}` : `${selectedArea}, ${selectedCity} - eta 45 min`}
                         </div>
                     </div>
                 </div>
@@ -164,11 +185,12 @@ function Navbar() {
                     position: 'absolute', 
                     left: '50%', 
                     transform: 'translateX(-50%)',
+                    zIndex: 1
                 }}>
                     <img 
                         src="/kruncheeselogo.png" 
                         alt="KRUNCHEESE" 
-                        style={{ height: '40px' }}
+                        style={{ height: isMobile ? '28px' : '40px' }}
                         onError={(e) => {
                             e.target.style.display = 'none'
                             e.target.nextSibling.style.display = 'block'
@@ -176,7 +198,7 @@ function Navbar() {
                     />
                     <div style={{ 
                         display: 'none',
-                        fontSize: '22px', 
+                        fontSize: isMobile ? '14px' : '22px', 
                         fontWeight: 'bold', 
                         color: '#c40013' 
                     }}>
@@ -185,12 +207,12 @@ function Navbar() {
                 </div>
 
                 {/* Action Icons - Right Side */}
-                <div className="d-flex align-items-center" style={{ gap: '20px' }}>
+                <div className="d-flex align-items-center" style={{ gap: isMobile ? '12px' : '20px', zIndex: 2 }}>
                     {/* Search Icon */}
                     <span 
                         style={{ 
                             cursor: 'pointer',
-                            fontSize: '20px',
+                            fontSize: isMobile ? '16px' : '20px',
                             color: '#c40013'
                         }}
                         onClick={() => setShowSearchModal(true)}
@@ -204,7 +226,7 @@ function Navbar() {
                         <span 
                             style={{ 
                                 cursor: 'pointer',
-                                fontSize: '20px',
+                                fontSize: isMobile ? '16px' : '20px',
                                 color: '#c40013'
                             }}
                             onClick={() => setShowProfileMenu(!showProfileMenu)}
@@ -224,7 +246,7 @@ function Navbar() {
                                     border: '1px solid #eee',
                                     borderRadius: '12px',
                                     boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-                                    minWidth: '200px',
+                                    minWidth: isMobile ? '180px' : '200px',
                                     zIndex: 2000,
                                     overflow: 'hidden',
                                 }}
@@ -343,7 +365,7 @@ function Navbar() {
 
                     {/* Cart Icon with Badge */}
                     <div style={{ position: 'relative', cursor: 'pointer' }}>
-                        <span style={{ fontSize: '20px', color: '#c40013' }}>🛒</span>
+                        <span style={{ fontSize: isMobile ? '16px' : '20px', color: '#c40013' }}>🛒</span>
                         <span
                             style={{
                                 position: 'absolute',
@@ -352,9 +374,9 @@ function Navbar() {
                                 background: '#000',
                                 color: '#fff',
                                 borderRadius: '50%',
-                                width: '18px',
-                                height: '18px',
-                                fontSize: '11px',
+                                width: isMobile ? '16px' : '18px',
+                                height: isMobile ? '16px' : '18px',
+                                fontSize: isMobile ? '10px' : '11px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -367,29 +389,33 @@ function Navbar() {
                 </div>
             </div>
 
-            {/* Sticky Category Navigation */}
+            {/* Sticky Category Navigation - Responsive */}
             <div
                 style={{
                     position: 'fixed',
-                    top: scrolled ? '0px' : '60px', 
+                    top: scrolled ? '0px' : (isMobile ? '50px' : '60px'), 
                     left: 0,
                     right: 0,
                     background: '#f7f7f8',
                     borderBottom: scrolled ? '1px solid #eee' : 'none',
-                    padding: '20px 40px',
+                    padding: isMobile ? '12px 8px' : (isTablet ? '16px 20px' : '20px 40px'),
                     zIndex: 1000,
                     transition: 'top 0.3s ease',
+                    overflowX: isMobile ? 'auto' : 'visible',
+                    overflowY: 'hidden',
+                    WebkitOverflowScrolling: 'touch',
                 }}
             >
                 <div
                     className="d-flex"
                     style={{
-                        gap: '14px',
+                        gap: isMobile ? '8px' : '14px',
                         position: 'relative',
-                        left: scrolled ? '0%' : '50%',
-                        transform: scrolled ? 'translateX(0)' : 'translateX(-50%)',
+                        left: (scrolled || isMobile) ? '0%' : '50%',
+                        transform: (scrolled || isMobile) ? 'translateX(0)' : 'translateX(-50%)',
                         transition: 'left 0.3s ease, transform 0.3s ease',
-                        width: 'fit-content',
+                        width: isMobile ? 'max-content' : 'fit-content',
+                        paddingBottom: isMobile ? '4px' : '0',
                     }}
                 >
                     {categories.map((cat) => (
@@ -398,7 +424,7 @@ function Navbar() {
                             onClick={() => handleCategoryClick(cat)}
                             className="fw-bold"
                             style={{
-                                padding: '10px 24px',
+                                padding: isMobile ? '8px 16px' : '10px 24px',
                                 borderRadius: '30px',
                                 border: 'none',
                                 background: activeCategory === cat ? '#fff' : '#c40013',
@@ -407,6 +433,7 @@ function Navbar() {
                                 cursor: 'pointer',
                                 whiteSpace: 'nowrap',
                                 transition: 'all 0.2s ease',
+                                fontSize: isMobile ? '13px' : '15px',
                             }}
                         >
                             {cat}
@@ -415,7 +442,7 @@ function Navbar() {
                 </div>
             </div>
 
-            <div style={{ height: '76px' }} />
+            <div style={{ height: isMobile ? '56px' : '76px' }} />
 
             {/* Location Selection Modal - Shown on first visit */}
             {showLocationModal && (
@@ -443,11 +470,13 @@ function Navbar() {
                         onClick={(e) => e.stopPropagation()}
                         style={{
                             background: '#fff',
-                            borderRadius: '20px',
-                            padding: '40px 50px',
-                            maxWidth: '600px',
-                            width: '90%',
+                            borderRadius: isMobile ? '16px' : '20px',
+                            padding: isMobile ? '24px 20px' : (isTablet ? '32px 36px' : '40px 50px'),
+                            maxWidth: isMobile ? '95%' : (isTablet ? '500px' : '600px'),
+                            width: isMobile ? '95%' : '90%',
                             position: 'relative',
+                            maxHeight: '90vh',
+                            overflowY: 'auto',
                         }}
                     >
                         {/* Close Button - Only show if location already confirmed */}
@@ -476,11 +505,11 @@ function Navbar() {
                         )}
 
                         {/* Logo */}
-                        <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                        <div style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '30px' }}>
                             <img 
                                 src="/kruncheeselogo.png" 
                                 alt="KRUNCHEESE" 
-                                style={{ height: '50px' }}
+                                style={{ height: isMobile ? '36px' : '50px' }}
                                 onError={(e) => {
                                     e.target.style.display = 'none'
                                     e.target.nextSibling.style.display = 'block'
@@ -488,7 +517,7 @@ function Navbar() {
                             />
                             <div style={{ 
                                 display: 'none',
-                                fontSize: '24px', 
+                                fontSize: isMobile ? '18px' : '24px', 
                                 fontWeight: 'bold', 
                                 color: '#c40013' 
                             }}>
@@ -499,8 +528,8 @@ function Navbar() {
                         {/* Select Order Type */}
                         <h3 style={{ 
                             textAlign: 'center', 
-                            fontSize: '22px', 
-                            marginBottom: '20px',
+                            fontSize: isMobile ? '18px' : '22px', 
+                            marginBottom: isMobile ? '16px' : '20px',
                             color: '#333',
                             fontWeight: '600'
                         }}>
@@ -509,19 +538,19 @@ function Navbar() {
 
                         <div style={{ 
                             display: 'flex', 
-                            gap: '12px', 
+                            gap: isMobile ? '8px' : '12px', 
                             justifyContent: 'center',
-                            marginBottom: '30px'
+                            marginBottom: isMobile ? '20px' : '30px'
                         }}>
                             <button
                                 onClick={() => setOrderType('Delivery')}
                                 style={{
-                                    padding: '12px 40px',
+                                    padding: isMobile ? '10px 24px' : '12px 40px',
                                     borderRadius: '30px',
                                     border: 'none',
                                     background: orderType === 'Delivery' ? '#c40013' : '#fff',
                                     color: orderType === 'Delivery' ? '#fff' : '#333',
-                                    fontSize: '15px',
+                                    fontSize: isMobile ? '13px' : '15px',
                                     fontWeight: '600',
                                     cursor: 'pointer',
                                     border: `2px solid ${orderType === 'Delivery' ? '#c40013' : '#ddd'}`,
@@ -533,12 +562,12 @@ function Navbar() {
                             <button
                                 onClick={() => setOrderType('Pick-Up')}
                                 style={{
-                                    padding: '12px 40px',
+                                    padding: isMobile ? '10px 24px' : '12px 40px',
                                     borderRadius: '30px',
                                     border: 'none',
                                     background: orderType === 'Pick-Up' ? '#c40013' : '#fff',
                                     color: orderType === 'Pick-Up' ? '#fff' : '#333',
-                                    fontSize: '15px',
+                                    fontSize: isMobile ? '13px' : '15px',
                                     fontWeight: '600',
                                     cursor: 'pointer',
                                     border: `2px solid ${orderType === 'Pick-Up' ? '#c40013' : '#ddd'}`,

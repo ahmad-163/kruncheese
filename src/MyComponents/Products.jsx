@@ -73,64 +73,144 @@ function Products(props) {
     ];
 
     return (
-        <div className="container">
+        <div style={{ padding: '0 16px' }}>
+            <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
 
-            
+                {all.map((section) => (
+                    <div key={section.title} data-section={section.title}>
 
-            {all.map((section) => (
-                <div key={section.title} data-section={section.title}>
+                        <h3 
+                            className="fw-bold mt-4" 
+                            style={{ 
+                                fontSize: 'clamp(20px, 5vw, 28px)',
+                                padding: '0 8px' 
+                            }}
+                        >
+                            {section.title}
+                        </h3>
 
-                    <h3 className="fw-bold mt-4">{section.title}</h3>
+                        <img
+                            src={section.banner}
+                            alt={section.title}
+                            className="img-fluid my-3"
+                            style={{ 
+                                borderRadius: '20px',
+                                width: '100%',
+                                maxHeight: '300px',
+                                objectFit: 'cover'
+                            }}
+                        />
 
-                    <img
-                        src={section.banner}
-                        alt={section.title}
-                        className="img-fluid rounded-4 my-3"
-                    />
+                        {/* Responsive Grid */}
+                        <div 
+                            style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 240px), 1fr))',
+                                gap: '20px',
+                                justifyItems: 'center',
+                                marginBottom: '40px'
+                            }}
+                        >
+                            {section.products.map((product) => (
+                                <div key={product.id} style={{ width: '100%', maxWidth: '280px' }}>
+                                    <div
+                                        className="card"
+                                        style={{
+                                            width: "100%",
+                                            boxShadow: "0px 4px 10px 2px rgba(68, 68, 68, 0.2)",
+                                            borderRadius: "20px",
+                                            border: 'none',
+                                            transition: 'transform 0.2s, box-shadow 0.2s'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(-4px)'
+                                            e.currentTarget.style.boxShadow = '0px 6px 16px 4px rgba(68, 68, 68, 0.25)'
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'translateY(0)'
+                                            e.currentTarget.style.boxShadow = '0px 4px 10px 2px rgba(68, 68, 68, 0.2)'
+                                        }}
+                                    >
+                                        <img
+                                            src={product.image}
+                                            className="card-img-top p-2"
+                                            alt={product.name}
+                                            style={{
+                                                borderRadius: '20px',
+                                                aspectRatio: '1/1',
+                                                objectFit: 'cover'
+                                            }}
+                                        />
 
-                    <div className="row">
-                        {section.products.map((product) => (
-                            <div className="col-md-3 mb-4" key={product.id}>
-                                <div
-                                    className="card"
-                                    style={{
-                                        width: "220px",
-                                        boxShadow: "0px 4px 10px 2px rgba(68, 68, 68, 0.2)",
-                                        borderRadius: "20px",
-                                    }}
-                                >
-                                    <img
-                                        src={product.image}
-                                        className="card-img-top rounded-4 p-2"
-                                        alt={product.name}
-                                    />
+                                        <div className="card-body" style={{ textAlign: "center", padding: '16px' }}>
+                                            <h5 
+                                                className="fw-bold" 
+                                                style={{ 
+                                                    fontSize: 'clamp(14px, 4vw, 18px)',
+                                                    marginBottom: '8px',
+                                                    minHeight: '40px',
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    justifyContent: 'center'
+                                                }}
+                                            >
+                                                {product.name}
+                                            </h5>
 
-                                    <div className="card-body" style={{ textAlign: "center" }}>
-                                        <h5 className="fw-bold">{product.name}</h5>
+                                            <p 
+                                                className="text-secondary" 
+                                                style={{ 
+                                                    fontSize: 'clamp(12px, 3vw, 14px)',
+                                                    minHeight: '40px',
+                                                    marginBottom: '12px'
+                                                }}
+                                            >
+                                                {product.description}
+                                            </p>
 
-                                        <p className="text-secondary">
-                                            {product.description}
-                                        </p>
+                                            <hr style={{ margin: '12px 0' }} />
 
-                                        <hr />
+                                            <h6 
+                                                className="fw-bold" 
+                                                style={{ 
+                                                    fontSize: 'clamp(16px, 4vw, 18px)',
+                                                    marginBottom: '12px',
+                                                    color: '#c40013'
+                                                }}
+                                            >
+                                                Rs. {product.price}
+                                            </h6>
 
-                                        <h6 className="fw-bold">
-                                            Rs. {product.price}
-                                        </h6>
-
-                                        <button
-                                            className="btn btn-danger px-4"
-                                            style={{ borderRadius: "20px" }}
-                                        >
-                                            <b>Add to Cart</b>
-                                        </button>
+                                            <button
+                                                className="btn btn-danger"
+                                                style={{ 
+                                                    borderRadius: "20px",
+                                                    padding: '10px 24px',
+                                                    fontWeight: 'bold',
+                                                    fontSize: 'clamp(12px, 3vw, 14px)',
+                                                    width: '100%',
+                                                    maxWidth: '200px',
+                                                    transition: 'all 0.2s'
+                                                }}
+                                                onMouseEnter={(e) => {
+                                                    e.target.style.transform = 'scale(1.05)'
+                                                    e.target.style.background = '#a3000f'
+                                                }}
+                                                onMouseLeave={(e) => {
+                                                    e.target.style.transform = 'scale(1)'
+                                                    e.target.style.background = ''
+                                                }}
+                                            >
+                                                Add to Cart
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }

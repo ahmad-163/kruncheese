@@ -7,8 +7,70 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #ffffff;
+  overflow-x: hidden;
 }
 
 img {
   max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Container */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for category navigation on mobile */
+@media (max-width: 768px) {
+  div::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  div::-webkit-scrollbar-thumb {
+    background: rgba(196, 0, 19, 0.3);
+    border-radius: 4px;
+  }
+  
+  div::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }
