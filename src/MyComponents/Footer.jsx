@@ -39,7 +39,7 @@ function Footer() {
             <img
               src="/kruncheeselogo.png"
               alt="Kruncheese logo"
-              style={{ height: 'clamp(40px, 8vw, 60px)', width: 'auto', objectFit: 'contain' }}
+              style={{ height: 'clamp(55px, 10vw, 80px)', width: 'auto', objectFit: 'contain' }}
             />
           </div>
 

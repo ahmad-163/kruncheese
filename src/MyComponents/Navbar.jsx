@@ -190,7 +190,7 @@ function Navbar() {
                     <img 
                         src="/kruncheeselogo.png" 
                         alt="KRUNCHEESE" 
-                        style={{ height: isMobile ? '28px' : '40px' }}
+                        style={{ height: isMobile ? '36px' : '50px' }}
                         onError={(e) => {
                             e.target.style.display = 'none'
                             e.target.nextSibling.style.display = 'block'
@@ -198,7 +198,7 @@ function Navbar() {
                     />
                     <div style={{ 
                         display: 'none',
-                        fontSize: isMobile ? '14px' : '22px', 
+                        fontSize: isMobile ? '18px' : '24px', 
                         fontWeight: 'bold', 
                         color: '#c40013' 
                     }}>
@@ -398,7 +398,7 @@ function Navbar() {
                     right: 0,
                     background: '#f7f7f8',
                     borderBottom: scrolled ? '1px solid #eee' : 'none',
-                    padding: isMobile ? '12px 8px' : (isTablet ? '16px 20px' : '20px 40px'),
+                    padding: isMobile ? '12px 0' : (isTablet ? '16px 0' : '20px 0'),
                     zIndex: 1000,
                     transition: 'top 0.3s ease',
                     overflowX: isMobile ? 'auto' : 'visible',
@@ -407,38 +407,41 @@ function Navbar() {
                 }}
             >
                 <div
-                    className="d-flex"
                     style={{
-                        gap: isMobile ? '8px' : '14px',
-                        position: 'relative',
-                        left: (scrolled || isMobile) ? '0%' : '50%',
-                        transform: (scrolled || isMobile) ? 'translateX(0)' : 'translateX(-50%)',
-                        transition: 'left 0.3s ease, transform 0.3s ease',
-                        width: isMobile ? 'max-content' : 'fit-content',
-                        paddingBottom: isMobile ? '4px' : '0',
+                        maxWidth: '1400px',
+                        margin: '0 auto',
+                        padding: isMobile ? '0 16px' : '0 16px',
                     }}
                 >
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => handleCategoryClick(cat)}
-                            className="fw-bold"
-                            style={{
-                                padding: isMobile ? '8px 16px' : '10px 24px',
-                                borderRadius: '30px',
-                                border: 'none',
-                                background: activeCategory === cat ? '#fff' : '#c40013',
-                                color: activeCategory === cat ? '#c40013' : '#fff',
-                                boxShadow: activeCategory === cat ? '0 1px 4px rgba(0,0,0,0.15)' : 'none',
-                                cursor: 'pointer',
-                                whiteSpace: 'nowrap',
-                                transition: 'all 0.2s ease',
-                                fontSize: isMobile ? '13px' : '15px',
-                            }}
-                        >
-                            {cat}
-                        </button>
-                    ))}
+                    <div
+                        className="d-flex"
+                        style={{
+                            gap: isMobile ? '8px' : '14px',
+                            width: isMobile ? 'max-content' : 'fit-content',
+                        }}
+                    >
+                        {categories.map((cat) => (
+                            <button
+                                key={cat}
+                                onClick={() => handleCategoryClick(cat)}
+                                className="fw-bold"
+                                style={{
+                                    padding: isMobile ? '8px 16px' : '10px 24px',
+                                    borderRadius: '30px',
+                                    border: 'none',
+                                    background: activeCategory === cat ? '#fff' : '#c40013',
+                                    color: activeCategory === cat ? '#c40013' : '#fff',
+                                    boxShadow: activeCategory === cat ? '0 1px 4px rgba(0,0,0,0.15)' : 'none',
+                                    cursor: 'pointer',
+                                    whiteSpace: 'nowrap',
+                                    transition: 'all 0.2s ease',
+                                    fontSize: isMobile ? '13px' : '15px',
+                                }}
+                            >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -509,7 +512,7 @@ function Navbar() {
                             <img 
                                 src="/kruncheeselogo.png" 
                                 alt="KRUNCHEESE" 
-                                style={{ height: isMobile ? '36px' : '50px' }}
+                                style={{ height: isMobile ? '50px' : '65px' }}
                                 onError={(e) => {
                                     e.target.style.display = 'none'
                                     e.target.nextSibling.style.display = 'block'
@@ -517,7 +520,7 @@ function Navbar() {
                             />
                             <div style={{ 
                                 display: 'none',
-                                fontSize: isMobile ? '18px' : '24px', 
+                                fontSize: isMobile ? '20px' : '26px', 
                                 fontWeight: 'bold', 
                                 color: '#c40013' 
                             }}>

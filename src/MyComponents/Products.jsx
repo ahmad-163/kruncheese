@@ -73,8 +73,9 @@ function Products(props) {
     ];
 
     return (
-        <div style={{ padding: '0 16px' }}>
-            <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div>
+            {/* Container with consistent padding */}
+            <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 16px' }}>
 
                 {all.map((section) => (
                     <div key={section.title} data-section={section.title}>
@@ -82,13 +83,15 @@ function Products(props) {
                         <h3 
                             className="fw-bold mt-4" 
                             style={{ 
-                                fontSize: 'clamp(20px, 5vw, 28px)',
-                                padding: '0 8px' 
+                                fontSize: 'clamp(22px, 5vw, 32px)',
+                                marginBottom: '16px',
+                                color: '#333'
                             }}
                         >
                             {section.title}
                         </h3>
 
+                        {/* Banner - Fixed height for consistency */}
                         <img
                             src={section.banner}
                             alt={section.title}
@@ -96,31 +99,35 @@ function Products(props) {
                             style={{ 
                                 borderRadius: '20px',
                                 width: '100%',
-                                maxHeight: '300px',
-                                objectFit: 'cover'
+                                height: '200px',
+                                objectFit: 'cover',
+                                marginBottom: '24px'
                             }}
                         />
 
-                        {/* Responsive Grid */}
+                        {/* Responsive Grid: 2 columns on mobile, 6 on desktop */}
                         <div 
                             style={{
                                 display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 240px), 1fr))',
-                                gap: '20px',
-                                justifyItems: 'center',
-                                marginBottom: '40px'
+                                gridTemplateColumns: 'repeat(2, 1fr)', // Default: 2 columns for mobile
+                                gap: '16px',
+                                marginBottom: '48px'
                             }}
+                            className="products-grid"
                         >
                             {section.products.map((product) => (
-                                <div key={product.id} style={{ width: '100%', maxWidth: '280px' }}>
+                                <div key={product.id}>
                                     <div
                                         className="card"
                                         style={{
                                             width: "100%",
                                             boxShadow: "0px 4px 10px 2px rgba(68, 68, 68, 0.2)",
-                                            borderRadius: "20px",
+                                            borderRadius: "16px",
                                             border: 'none',
-                                            transition: 'transform 0.2s, box-shadow 0.2s'
+                                            transition: 'transform 0.2s, box-shadow 0.2s',
+                                            height: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column'
                                         }}
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.transform = 'translateY(-4px)'
@@ -131,78 +138,111 @@ function Products(props) {
                                             e.currentTarget.style.boxShadow = '0px 4px 10px 2px rgba(68, 68, 68, 0.2)'
                                         }}
                                     >
-                                        <img
-                                            src={product.image}
-                                            className="card-img-top p-2"
-                                            alt={product.name}
-                                            style={{
-                                                borderRadius: '20px',
-                                                aspectRatio: '1/1',
-                                                objectFit: 'cover'
-                                            }}
-                                        />
-
-                                        <div className="card-body" style={{ textAlign: "center", padding: '16px' }}>
-                                            <h5 
-                                                className="fw-bold" 
-                                                style={{ 
-                                                    fontSize: 'clamp(14px, 4vw, 18px)',
-                                                    marginBottom: '8px',
-                                                    minHeight: '40px',
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center'
-                                                }}
-                                            >
-                                                {product.name}
-                                            </h5>
-
-                                            <p 
-                                                className="text-secondary" 
-                                                style={{ 
-                                                    fontSize: 'clamp(12px, 3vw, 14px)',
-                                                    minHeight: '40px',
-                                                    marginBottom: '12px'
-                                                }}
-                                            >
-                                                {product.description}
-                                            </p>
-
-                                            <hr style={{ margin: '12px 0' }} />
-
-                                            <h6 
-                                                className="fw-bold" 
-                                                style={{ 
-                                                    fontSize: 'clamp(16px, 4vw, 18px)',
-                                                    marginBottom: '12px',
-                                                    color: '#c40013'
-                                                }}
-                                            >
-                                                Rs. {product.price}
-                                            </h6>
-
-                                            <button
-                                                className="btn btn-danger"
-                                                style={{ 
-                                                    borderRadius: "20px",
-                                                    padding: '10px 24px',
-                                                    fontWeight: 'bold',
-                                                    fontSize: 'clamp(12px, 3vw, 14px)',
+                                        {/* Image container with fixed aspect ratio */}
+                                        <div style={{ 
+                                            width: '100%', 
+                                            paddingTop: '100%', // 1:1 aspect ratio
+                                            position: 'relative',
+                                            overflow: 'hidden',
+                                            borderRadius: '16px 16px 0 0'
+                                        }}>
+                                            <img
+                                                src={product.image}
+                                                alt={product.name}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '0',
+                                                    left: '0',
                                                     width: '100%',
-                                                    maxWidth: '200px',
-                                                    transition: 'all 0.2s'
+                                                    height: '100%',
+                                                    objectFit: 'cover',
+                                                    padding: '8px'
                                                 }}
-                                                onMouseEnter={(e) => {
-                                                    e.target.style.transform = 'scale(1.05)'
-                                                    e.target.style.background = '#a3000f'
-                                                }}
-                                                onMouseLeave={(e) => {
-                                                    e.target.style.transform = 'scale(1)'
-                                                    e.target.style.background = ''
-                                                }}
-                                            >
-                                                Add to Cart
-                                            </button>
+                                            />
+                                        </div>
+
+                                        {/* Card body with fixed height structure */}
+                                        <div 
+                                            className="card-body" 
+                                            style={{ 
+                                                textAlign: "center", 
+                                                padding: '12px',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                justifyContent: 'space-between',
+                                                flex: 1
+                                            }}
+                                        >
+                                            <div>
+                                                <h5 
+                                                    className="fw-bold" 
+                                                    style={{ 
+                                                        fontSize: 'clamp(13px, 2.5vw, 16px)',
+                                                        marginBottom: '6px',
+                                                        height: '38px',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        overflow: 'hidden',
+                                                        lineHeight: '1.2'
+                                                    }}
+                                                >
+                                                    {product.name}
+                                                </h5>
+
+                                                <p 
+                                                    className="text-secondary" 
+                                                    style={{ 
+                                                        fontSize: 'clamp(11px, 2vw, 13px)',
+                                                        height: '36px',
+                                                        marginBottom: '8px',
+                                                        overflow: 'hidden',
+                                                        display: '-webkit-box',
+                                                        WebkitLineClamp: 2,
+                                                        WebkitBoxOrient: 'vertical',
+                                                        lineHeight: '1.4'
+                                                    }}
+                                                >
+                                                    {product.description}
+                                                </p>
+                                            </div>
+
+                                            <div>
+                                                <hr style={{ margin: '8px 0' }} />
+
+                                                <h6 
+                                                    className="fw-bold" 
+                                                    style={{ 
+                                                        fontSize: 'clamp(15px, 3vw, 18px)',
+                                                        marginBottom: '10px',
+                                                        color: '#c40013'
+                                                    }}
+                                                >
+                                                    Rs. {product.price}
+                                                </h6>
+
+                                                <button
+                                                    className="btn btn-danger"
+                                                    style={{ 
+                                                        borderRadius: "20px",
+                                                        padding: '8px 16px',
+                                                        fontWeight: 'bold',
+                                                        fontSize: 'clamp(11px, 2.2vw, 13px)',
+                                                        width: '100%',
+                                                        transition: 'all 0.2s'
+                                                    }}
+                                                    onMouseEnter={(e) => {
+                                                        e.target.style.transform = 'scale(1.05)'
+                                                        e.target.style.background = '#a3000f'
+                                                    }}
+                                                    onMouseLeave={(e) => {
+                                                        e.target.style.transform = 'scale(1)'
+                                                        e.target.style.background = ''
+                                                    }}
+                                                >
+                                                    Add to Cart
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

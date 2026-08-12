@@ -54,6 +54,37 @@ img {
   }
 }
 
+/* Products Grid - 2 columns mobile, 6 columns desktop */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile */
+  gap: 16px;
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Large Desktop: 6 columns */
+@media (min-width: 1200px) {
+  .products-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
