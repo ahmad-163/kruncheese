@@ -75,17 +75,11 @@ html {
 }
 
 /* Hide scrollbar for category navigation on mobile */
-@media (max-width: 768px) {
-  div::-webkit-scrollbar {
-    height: 4px;
-  }
-  
-  div::-webkit-scrollbar-thumb {
-    background: rgba(196, 0, 19, 0.3);
-    border-radius: 4px;
-  }
-  
-  div::-webkit-scrollbar-track {
-    background: transparent;
-  }
+.category-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
 }

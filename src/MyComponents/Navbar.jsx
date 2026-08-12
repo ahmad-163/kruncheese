@@ -392,7 +392,7 @@ function Navbar() {
             </div>
 
             {/* Sticky Category Navigation - Responsive */}
-            <div
+            <div  className="category-scroll"
                 style={{
                     position: 'fixed',
                     top: scrolled ? '0px' : (isMobile ? '50px' : '60px'), 
@@ -420,11 +420,7 @@ function Navbar() {
                         className="d-flex"
                         style={{
                             gap: isMobile ? '8px' : '14px',
-                            width: 'fit-content',
-                            position: 'relative',
-                            left: scrolled ? '0%' : '50%',
-                            transform: scrolled ? 'translateX(0)' : 'translateX(-50%)',
-                            transition: 'left 0.3s ease, transform 0.3s ease',
+                            width: isMobile ? 'max-content' : 'fit-content'
                         }}
                     >
                         {categories.map((cat) => (
