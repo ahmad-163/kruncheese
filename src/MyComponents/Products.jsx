@@ -108,9 +108,7 @@ function Products(props) {
                         {/* Responsive Grid: 2 columns on mobile, 6 on desktop */}
                         <div 
                             style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(2, 1fr)', // Default: 2 columns for mobile
-                                gap: '16px',
+                                
                                 marginBottom: '48px'
                             }}
                             className="products-grid"
