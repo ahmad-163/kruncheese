@@ -403,9 +403,8 @@ function Navbar() {
                     padding: isMobile ? '12px 0' : (isTablet ? '16px 0' : '20px 0'),
                     zIndex: 1000,
                     transition: 'top 0.3s ease',
-                    overflowX: isMobile ? 'auto' : 'visible',
+                    overflowX: 'hidden',
                     overflowY: 'hidden',
-                    WebkitOverflowScrolling: 'touch',
                 }}
             >
                 <div
@@ -414,13 +413,14 @@ function Navbar() {
                         margin: '0 auto',
                         padding: isMobile ? '0 16px' : '0 16px',
                         position: 'relative',
+                        overflowX: 'hidden',
                     }}
                 >
                     <div
                         className="d-flex"
                         style={{
                             gap: isMobile ? '8px' : '14px',
-                            width: isMobile ? 'max-content' : 'fit-content',
+                            width: 'fit-content',
                             position: 'relative',
                             left: scrolled ? '0%' : '50%',
                             transform: scrolled ? 'translateX(0)' : 'translateX(-50%)',
