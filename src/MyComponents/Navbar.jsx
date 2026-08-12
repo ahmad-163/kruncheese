@@ -160,7 +160,9 @@ function Navbar() {
                     borderBottom: '1px solid #eee', 
                     background: '#fff',
                     boxShadow: '0 2px 4px rgba(0,0,0,0.05)',
-                    padding: isMobile ? '0 12px' : '0 16px'
+                    padding: isMobile ? '0 12px' : '0 16px',
+                    position: 'relative',
+                    zIndex: 2000
                 }}
             >
                 {/* Location Selector - Left Side */}

@@ -91,16 +91,16 @@ function Products(props) {
                             {section.title}
                         </h3>
 
-                        {/* Banner - Fixed height for consistency */}
+                        {/* Banner - Show full image with rounded corners */}
                         <img
                             src={section.banner}
                             alt={section.title}
-                            className="img-fluid my-3"
                             style={{ 
                                 borderRadius: '20px',
                                 width: '100%',
                                 height: 'auto',
-                                objectFit: 'contain',
+                                display: 'block',
+                                marginTop: '16px',
                                 marginBottom: '24px'
                             }}
                         />
