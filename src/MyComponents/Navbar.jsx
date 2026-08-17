@@ -192,7 +192,7 @@ function Navbar() {
                     zIndex: 1
                 }}>
                     <img 
-                        src="/kruncheeselogo(2).png" 
+                        src="/kruncheeselogo.png" 
                         alt="KRUNCHEESE" 
                         style={{ height: isMobile ? '5px' : '30px' }}
                         onError={(e) => {
