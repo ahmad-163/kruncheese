@@ -4,7 +4,7 @@ function Products(props) {
     const all = [
         {
             title: "Deals",
-            banner: "/burgerbanner.jpg",
+            banner: "/dealsbanner.jpg",
             products: [
                 { id: 1, name: "Krisp & Sip Combo", description: "Krisp Burger + 345ml Drink", price: 349, image: "/burger.jpg", category: "Deals" },
                 { id: 2, name: "Krisp Krave Combo", description: "Krisp Burger + Fries + Drink", price: 590, image: "/burger.jpg", category: "Deals" },
@@ -30,7 +30,7 @@ function Products(props) {
 
         {
             title: "Wraps",
-            banner: "/burgerbanner.jpg",
+            banner: "/pizzabanner.jpg",
             products: [
                 { id: 12, name: "Chicken Wrap", description: "Crispy chicken wrap", price: 399, image: "/burger.jpg", category: "Wraps" },
                 { id: 13, name: "Spicy Wrap", description: "Spicy chicken wrap", price: 449, image: "/burger.jpg", category: "Wraps" },
@@ -39,7 +39,7 @@ function Products(props) {
 
         {
             title: "Sides",
-            banner: "/burgerbanner.jpg",
+            banner: "/sidesbanner.jpg",
             products: [
                 { id: 14, name: "Plain Fries", description: "Regular fries", price: 299, image: "/burger.jpg", category: "Sides" },
                 { id: 15, name: "Loaded Fries", description: "Fries with sauces", price: 399, image: "/burger.jpg", category: "Sides" },
@@ -52,7 +52,7 @@ function Products(props) {
 
         {
             title: "Dip",
-            banner: "/burgerbanner.jpg",
+            banner: "/dipsbanner.jpg",
             products: [
                 { id: 20, name: "Garlic Mayo", description: "Creamy garlic dip", price: 70, image: "/burger.jpg", category: "Dip" },
                 { id: 21, name: "Cheese Sauce", description: "Cheesy dip", price: 90, image: "/burger.jpg", category: "Dip" },
@@ -63,7 +63,7 @@ function Products(props) {
 
         {
             title: "Drinks",
-            banner: "/burgerbanner.jpg",
+            banner: "/drinksbanner.jpg",
             products: [
                 { id: 24, name: "Pepsi 345ml", description: "Soft Drink", price: 120, image: "/burger.jpg", category: "Drinks" },
                 { id: 25, name: "7UP 345ml", description: "Soft Drink", price: 120, image: "/burger.jpg", category: "Drinks" },
