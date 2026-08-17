@@ -186,13 +186,14 @@ function Navbar() {
                 <div style={{ 
                     position: 'absolute', 
                     left: '50%', 
-                    transform: 'translateX(-50%)',
+                    top: '50%', 
+                    transform: 'translateX(-50%,-50%)',
                     zIndex: 1
                 }}>
                     <img 
                         src="/kruncheeselogo(2).png" 
                         alt="KRUNCHEESE" 
-                        style={{ height: isMobile ? '65px' : '90px' }}
+                        style={{ height: isMobile ? '50px' : '60px' }}
                         onError={(e) => {
                             e.target.style.display = 'none'
                             e.target.nextSibling.style.display = 'block'
