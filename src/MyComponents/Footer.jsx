@@ -33,7 +33,7 @@ function Footer() {
               <img
                 src="/kruncheeselogo.png"
                 alt="Kruncheese"
-                style={{ height: '120px' }}
+                style={{ height: '180px' }}
               />
             </div>
 
