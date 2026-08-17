@@ -194,7 +194,7 @@ function Navbar() {
                     <img 
                         src="/kruncheeselogo(2).png" 
                         alt="KRUNCHEESE" 
-                        style={{ height: isMobile ? '50px' : '60px' }}
+                        style={{ height: isMobile ? '50px' : '40px' }}
                         onError={(e) => {
                             e.target.style.display = 'none'
                             e.target.nextSibling.style.display = 'block'
