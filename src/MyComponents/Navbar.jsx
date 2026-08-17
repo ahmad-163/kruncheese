@@ -190,7 +190,7 @@ function Navbar() {
                     zIndex: 1
                 }}>
                     <img 
-                        src="/kruncheeselogo.png" 
+                        src="/kruncheeselogo.png?v=3" 
                         alt="KRUNCHEESE" 
                         style={{ height: isMobile ? '50px' : '70px' }}
                         onError={(e) => {
@@ -513,7 +513,7 @@ function Navbar() {
                         {/* Logo */}
                         <div style={{ textAlign: 'center', marginBottom: isMobile ? '20px' : '30px' }}>
                             <img 
-                                src="/kruncheeselogo.png" 
+                                src="/kruncheeselogo.png?v=3" 
                                 alt="KRUNCHEESE" 
                                 style={{ height: isMobile ? '50px' : '65px' }}
                                 onError={(e) => {
