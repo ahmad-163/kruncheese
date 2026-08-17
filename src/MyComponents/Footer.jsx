@@ -91,7 +91,7 @@ function Footer() {
 
           {/* Right Section */}
           <div>
-            <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
+            <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
               Our Timings
             </h3>
 
@@ -100,7 +100,7 @@ function Footer() {
               <span style={{ color: '#333' }}>12:00 PM - 05:00 AM</span>
             </div>
 
-            <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#000', marginBottom: '15px' }}>
+            <h4 style={{ fontSize: '15px', fontWeight: '700', color: '#000', marginBottom: '15px' }}>
               Follow Us:
             </h4>
 
@@ -204,11 +204,11 @@ function Footer() {
             <img
               src="/kruncheeselogo.png"
               alt="Kruncheese"
-              style={{ height: '100px', margin: '0 auto' }}
+              style={{ height: '120px', margin: '0 auto' }}
             />
           </div>
 
-          <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
             Kruncheese
           </h3>
 
@@ -256,7 +256,7 @@ function Footer() {
             </a>
           </div>
 
-          <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
+          <h3 style={{ fontSize: '15px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
             Our Timings
           </h3>
 
@@ -265,7 +265,7 @@ function Footer() {
             <span style={{ color: '#333' }}>12:00 PM - 05:00 AM</span>
           </div>
 
-          <h4 style={{ fontSize: '16px', fontWeight: '700', color: '#000', marginBottom: '15px' }}>
+          <h4 style={{ fontSize: '15px', fontWeight: '700', color: '#000', marginBottom: '15px' }}>
             Follow Us:
           </h4>
 
