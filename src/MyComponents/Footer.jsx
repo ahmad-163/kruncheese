@@ -313,7 +313,7 @@ function Footer() {
           </a>
         </div>
 
-        <hr style={{ borderTop: '2px solid #000000ff', margin: '20px 0' }} />
+        <hr style={{ borderTop: '2px solid #0b0b0bff', margin: '20px 0' }} />
 
         {/* Bottom */}
         <div style={{ textAlign: 'center', fontSize: '14px', color: '#666' }}>
