@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Products(props) {
     const all = [
@@ -93,18 +94,30 @@ function Products(props) {
                         </h3>
 
                         {/* Banner - Show full image with rounded corners */}
-                        <img
-                            src={section.banner}
-                            alt={section.title}
-                            style={{ 
-                                borderRadius: '20px',
-                                width: '100%',
-                                height: 'auto',
-                                display: 'block',
-                                marginTop: '16px',
-                                marginBottom: '24px'
-                            }}
-                        />
+                        <Link to={`/category/${section.title}`} style={{ display: 'block', textDecoration: 'none' }}>
+                            <img
+                                src={section.banner}
+                                alt={section.title}
+                                style={{ 
+                                    borderRadius: '20px',
+                                    width: '100%',
+                                    height: 'auto',
+                                    display: 'block',
+                                    marginTop: '16px',
+                                    marginBottom: '24px',
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.2s, box-shadow 0.2s'
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.target.style.transform = 'scale(1.02)'
+                                    e.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)'
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.target.style.transform = 'scale(1)'
+                                    e.target.style.boxShadow = 'none'
+                                }}
+                            />
+                        </Link>
 
                         {/* Responsive Grid: 2 columns on mobile, 6 on desktop */}
                         <div 
