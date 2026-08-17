@@ -184,10 +184,12 @@ function Navbar() {
 
                 {/* Brand Logo - Center */}
                 <div style={{ 
-                    position: 'absolute', 
-                    left: '50%', 
-                    top: '50%', 
-                    transform: 'translateX(-50%,-50%)',
+                    position: 'absolute',
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translateX(-50%)',
+                    display: 'flex',
+                    alignItems: 'center',
                     zIndex: 1
                 }}>
                     <img 
