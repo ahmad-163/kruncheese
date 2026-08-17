@@ -186,7 +186,6 @@ function Navbar() {
                 <div style={{ 
                     position: 'absolute',
                     left: '50%',
-                    top: '50%',
                     transform: 'translateX(-50%)',
                     display: 'flex',
                     alignItems: 'center',
