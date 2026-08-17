@@ -27,62 +27,65 @@ function Footer() {
           }}
         >
           {/* Left Section */}
-          <div>
-            {/* Logo */}
-            <div style={{ marginBottom: '25px' }}>
+          <div style={{ display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
+            {/* Logo - Large and to the left */}
+            <div style={{ flexShrink: 0 }}>
               <img
                 src="/kruncheeselogo.png"
                 alt="Kruncheese"
-                style={{ height: '70px' }}
+                style={{ height: '120px' }}
               />
             </div>
 
-            <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
-              Kruncheese
-            </h3>
+            {/* Contact Details */}
+            <div>
+              <h3 style={{ fontSize: '18px', fontWeight: '700', color: '#000', marginBottom: '18px' }}>
+                Kruncheese
+              </h3>
 
-            {/* Phone */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#c40013">
-                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
-              </svg>
-              <span style={{ fontSize: '14px', color: '#333' }}>+924211434434</span>
-            </div>
+              {/* Phone */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#c40013">
+                  <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                </svg>
+                <span style={{ fontSize: '14px', color: '#333' }}>+924211434434</span>
+              </div>
 
-            {/* Email */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#c40013">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-              <span style={{ fontSize: '14px', color: '#333' }}>contact@kruncheese.com.pk</span>
-            </div>
+              {/* Email */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#c40013">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span style={{ fontSize: '14px', color: '#333' }}>contact@kruncheese.com.pk</span>
+              </div>
 
-            {/* Address */}
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '20px' }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="#c40013" style={{ marginTop: '2px', flexShrink: 0 }}>
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <span style={{ fontSize: '14px', color: '#333', lineHeight: '1.5' }}>
-                Kruncheese - Gulberg, 3 A - C3 Near Hussain Chowk, Gulberg 3, Lahore
-              </span>
-            </div>
+              {/* Address */}
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginBottom: '20px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#c40013" style={{ marginTop: '2px', flexShrink: 0 }}>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span style={{ fontSize: '14px', color: '#333', lineHeight: '1.5' }}>
+                  Kruncheese - Gulberg, 3 A - C3 Near Hussain Chowk, Gulberg 3, Lahore
+                </span>
+              </div>
 
-            {/* App Store Badges */}
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <a href="#" style={{ display: 'block' }}>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                  alt="Get it on Google Play"
-                  style={{ height: '42px' }}
-                />
-              </a>
-              <a href="#" style={{ display: 'block' }}>
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
-                  alt="Download on the App Store"
-                  style={{ height: '42px' }}
-                />
-              </a>
+              {/* App Store Badges */}
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <a href="#" style={{ display: 'block' }}>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Get it on Google Play"
+                    style={{ height: '42px' }}
+                  />
+                </a>
+                <a href="#" style={{ display: 'block' }}>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                    alt="Download on the App Store"
+                    style={{ height: '42px' }}
+                  />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -213,7 +216,7 @@ function Footer() {
             <img
               src="/kruncheeselogo.png"
               alt="Kruncheese"
-              style={{ height: '70px', margin: '0 auto' }}
+              style={{ height: '100px', margin: '0 auto' }}
             />
           </div>
 
